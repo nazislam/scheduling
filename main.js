@@ -1,25 +1,21 @@
 const yaml = require('js-yaml');
 const fs = require('fs');
 const Time = require('./time');
+const Task = require('./task');
+let doc = yaml.safeLoad(fs.readFileSync('./tasks.yml'));
+let tasks = doc['tasks'];
 
 const startTime = new Time(7, 0);
-const endTime = new Time(22, 0);
 let time = startTime;
 let a = []; // tasks without start time
 let b = []; // tasks with start time
 let runningTask;
 
-let doc = yaml.safeLoad(fs.readFileSync('./tasks.yml'));
-let tasks = doc['tasks'];
 // console.log(tasks);
 
 function prioritizeTask(taskList) {
   for (let i of taskList) {
-    if (i.start === null) {
-      a.push(i.duration);
-    } else {
-      b.push(i);
-    }
+    a.push(i.duration);
   }
   let isSorted = false;
   while(!isSorted) {
@@ -34,7 +30,6 @@ function prioritizeTask(taskList) {
     }
   }
   console.log(a);
-  console.log(b);
 }
 
 function getTaskByStart(startTime) {
@@ -49,26 +44,18 @@ function printTask(task, startTime, endTime) {
 }
 
 function scheduleTask(taskArray) {
-  console.log(time.stringTime());
+  while (tasks.length !== 0) {
+  
+  }
   let f = time.stringTime();
   runningTask = getTaskByStart(time.stringTime());
-  console.log(runningTask.description);
   time.addMinute(runningTask.duration);
   let t = time.stringTime();
-  console.log(time.stringTime());
   printTask(runningTask, f, t);
-
-
-  /*
-  while (time !== endTime ) {
-    runningTask = getTaskByStart(time);
-    // printTask(runningTask, sTime, eTime);
-  }
-  */
 }
 
 scheduleTask(tasks);
-// prioritizeTask(tasks);
+prioritizeTask(tasks);
 
 
 
