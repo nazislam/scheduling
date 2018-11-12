@@ -30,10 +30,10 @@ class Time {
       this.m -= 60;
     }
   }
-
 }
 
-// let d = new Time(7, 30);
+let d = new Time(7, 30);
+d.addMinute(40);
 // let r = new Time(7, 5);
 // console.log(d.stringTime());
 // console.log(r.stringTime());

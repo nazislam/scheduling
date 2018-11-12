@@ -1,11 +1,14 @@
 class Task {
-  constructor(id, description, start, duration, compatibility, startTime, endTime) {
-    this.id = id;
-    this.description = description;
-    this.duration = duration;
-    this.compatibility = compatibility;
-    this.startTime = startTime;
-    this.endTime = endTime;
+  constructor(obj) {
+    this.id = obj.id;
+    this.description = obj.description;
+    this.duration = obj.duration;
+    this.compatibility = obj.compatibility;
+    this.startTime = obj.startTime;
+    this.endTime = obj.endTime;
+  }
+  getId() {
+    return this.id;
   }
 }
 
