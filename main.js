@@ -15,8 +15,6 @@ let a = []; // tasks without start time
 let b = []; // tasks with start time
 let runningTask;
 
-// console.log(tasks);
-
 function prioritizeTask(taskList) {
   for (let i of taskList) {
     a.push(i.duration);
@@ -74,17 +72,6 @@ function checkShortest(task1, task2) {
 
 let tn = 0;
 function scheduleTask(taskArray) {
-  // while (tn < 3) {
-  //   let st = time;
-  //   let t1 = bigList.shift();
-  //   tn++;
-  //   let t2 = bigList.shift();
-  //   tn++;
-  //   let ts = checkShortest(t1, t2);
-  //   st.addMinute(ts.duration);
-  //   // ts.
-
-  // }
   while (bigList.length !== 0 /*&& tn < 3*/) {
     let q = bigList.shift();
     tn++;
@@ -93,19 +80,14 @@ function scheduleTask(taskArray) {
     let oo = (time.stringTime()); // start time
     q.startTime = oo;
     y.startTime = oo;
-    // q.endTime = time.addMinute(q.duration);
     time.addMinute(q.duration);
     let rr = (time.stringTime()); // end time
     printTask(q, oo, rr);
+    tn--;
     printTask(y, oo, rr);
+    tn--;
   }
-  // for (task of bigList) {
-  //   console.log(task.description + ', ' + task.startTime + '-' + task.endTime);
-  // }
 }
 
-pp(bigList);
 console.log('----');
 scheduleTask(tasks);
-// prioritizeTask(tasks);
-

@@ -32,17 +32,4 @@ class Time {
   }
 }
 
-let d = new Time(7, 30);
-d.addMinute(40);
-// let r = new Time(7, 5);
-// console.log(d.stringTime());
-// console.log(r.stringTime());
-// d.addMinute(30);
-// d.printDate();
-// d.addMinute(40);
-// d.printDate();
-// d.addMinute(35);
-// d.printDate();
-
-
 module.exports = Time;
