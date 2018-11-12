@@ -93,7 +93,6 @@ function scheduleTask(taskArray) {
     let oo = (time.stringTime()); // start time
     q.startTime = oo;
     y.startTime = oo;
-    // q.endTime = time.addMinute(q.duration);
     time.addMinute(q.duration);
     let rr = (time.stringTime()); // end time
     printTask(q, oo, rr);
