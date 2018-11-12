@@ -86,6 +86,15 @@ function scheduleTask(taskArray) {
 
   // }
   while (bigList.length !== 0 /*&& tn < 3*/) {
+    
+    var q = bigList.shift();
+    tn++;
+
+    
+
+
+
+
     let q = bigList.shift();
     tn++;
     let y = bigList.shift();
@@ -98,6 +107,7 @@ function scheduleTask(taskArray) {
     printTask(q, oo, rr);
     printTask(y, oo, rr);
   }
+
   // for (task of bigList) {
   //   console.log(task.description + ', ' + task.startTime + '-' + task.endTime);
   // }
